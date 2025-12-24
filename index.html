@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podologia | Marcela Costa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- VARIÁVEIS DE ESTILO --- */
+        :root {
+            --cor-primaria: #5FA8A8; /* A COR SOLICITADA */
+            --cor-primaria-escuro: #468585; /* Versão mais escura para hover */
+            --cor-fundo: #F4F9F9; /* Fundo muito leve, quase branco */
+            --cor-fundo-destaque: #E6F2F2; /* Fundo para seções alternadas */
+            --cor-texto: #555555;
+            --cor-titulo: #333333;
+            --cor-whatsapp: #25D366;
+            
+            --fonte-titulo: 'Playfair Display', serif;
+            --fonte-corpo: 'Lato', sans-serif;
+            
+            --sombra: 0 8px 20px rgba(95, 168, 168, 0.15); /* Sombra colorida suave */
+        }
+
+        /* --- RESET GERAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--fonte-corpo);
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.8; /* Leitura confortável */
+        }
+
+        h1, h2, h3 { color: var(--cor-primaria); margin-bottom: 15px; }
+
+        /* --- HEADER --- */
+        header {
+            background-color: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo h1 {
+            font-family: var(--fonte-titulo);
+            font-size: 1.6rem;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo p { font-size: 0.8rem; color: #888; margin-top: -2px; }
+
+        nav ul { list-style: none; display: flex; gap: 25px; }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--cor-texto);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        nav ul li a:hover { color: var(--cor-primaria); font-weight: bold; }
+
+        /* --- HERO (Banner) --- */
+        .hero {
+            /* Imagem clean e relaxante */
+            background: linear-gradient(rgba(95, 168, 168, 0.8), rgba(95, 168, 168, 0.6)), 
+                        url('https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 130px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h2 {
+            color: #fff;
+            font-family: var(--fonte-titulo);
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 700px;
+        }
+
+        /* --- SEÇÕES GERAIS --- */
+        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--fonte-titulo);
+            font-size: 2.5rem;
+            color: var(--cor-primaria);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background-color: #ddd;
+            margin: 20px auto 0;
+        }
+
+        /* --- SOBRE --- */
+        .sobre-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .sobre-img, .sobre-texto { flex: 1; min-width: 300px; }
+        .sobre-img img { width: 100%; border-radius: 12px; box-shadow: var(--sombra); }
+        
+        .sobre-texto p { margin-bottom: 20px; font-size: 1.1rem; color: #666; text-align: justify; }
+
+        /* --- INFORMAÇÕES (NOVA SEÇÃO RICA) --- */
+        .info-section {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: var(--sombra);
+            padding: 60px 40px;
+            margin-top: 40px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .info-item h3 {
+            font-size: 1.4rem;
+            color: var(--cor-primaria-escuro);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-item i { font-size: 1.2rem; color: var(--cor-primaria); }
+
+        .info-item p { font-size: 1rem; color: #666; margin-top: 10px; }
+
+        .destaque-frase {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--cor-primaria-escuro);
+            font-family: var(--fonte-titulo);
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* --- SERVIÇOS --- */
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-top: 4px solid var(--cor-primaria); /* Detalhe colorido no topo */
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--sombra); }
+        .card i { font-size: 2.2rem; color: var(--cor-primaria); margin-bottom: 20px; opacity: 0.8; }
+        .card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #444; }
+        .card p { font-size: 0.95rem; }
+
+        /* --- CONTATO --- */
+        .contato {
+            background-color: var(--cor-fundo-destaque);
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contato-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contato-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            min-width: 250px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        
+        .contato-box i { font-size: 1.8rem; color: var(--cor-primaria); margin-bottom: 15px; }
+        .contato-box strong { display: block; color: #333; margin-bottom: 5px; font-size: 1.1rem; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+        }
+        footer p { opacity: 0.7; }
+
+        /* --- WHATSAPP FLUTUANTE --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--cor-whatsapp);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #1ebe57; }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 20px; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
+            .hero h2 { font-size: 2.2rem; }
+            .info-section { padding: 30px 20px; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 26px; bottom: 20px; right: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h1>Podologia Marcela Costa</h1>
+        <p>Saúde Integrada dos Pés</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#importancia">Por que cuidar?</a></li> <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="inicio">
+    <h2>Seus pés merecem cuidado</h2>
+    <p>Atendimento especializado, ambiente seguro e toda a delicadeza que você procura em Jacupiranga.</p>
+</section>
+
+<section class="sobre" id="sobre">
+    <div class="sobre-container">
+        <div class="sobre-img">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop" alt="Podologia Profissional">
+        </div>
+        <div class="sobre-texto">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Sobre Marcela Costa</h2>
+            <p>
+                Marcela Costa é especialista em podologia, comprometida em oferecer muito mais do que estética. 
+                Entendemos que os pés são a base do nosso corpo e refletem diretamente na nossa qualidade de vida.
+            </p>
+            <p>
+                Com técnicas humanizadas e materiais estéreis de alta qualidade, garantimos um tratamento seguro 
+                e eficaz para todas as idades, desde o primeiro passo da criança até o cuidado essencial na melhor idade.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="importancia">
+    <div class="info-section">
+        <h2 class="section-title">Por que a Podologia é Essencial?</h2>
+        
+        <p class="destaque-frase">
+            "Seus pés suportam o peso do corpo o dia inteiro. Negligenciá-los pode afetar seus joelhos, coluna e equilíbrio."
+        </p>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <h3><i class="fas fa-heartbeat"></i> Prevenção e Saúde</h3>
+                <p>Muitas doenças sistêmicas, como o Diabetes e problemas circulatórios, dão os primeiros sinais nos pés. A avaliação podológica regular previne complicações graves.</p>
+            </div>
+            
+            <div class="info-item">
+                <h3><i class="fas fa-blind"></i> Envelhecimento Ativo</h3>
+                <p>Para os idosos, pés saudáveis significam mobilidade e independência. Tratamos calosidades e unhas espessas que causam dor e dificultam a caminhada.</p>
+            </div>
+
+            <div class="info-item">
+                <h3><i class="fas fa-running"></i> Melhora da Postura</h3>
+                <p>Uma pisada incorreta devido a dores (como uma unha encravada) pode causar problemas na coluna e quadril. Cuidar da base alinha o corpo todo.</p>
+            </div>
+
+            <div class="info-item">
+                <h3><i class="fas fa-user-md"></i> O Pé Diabético</h3>
+                <p>Diabéticos precisam de atenção redobrada. Perda de sensibilidade pode esconder feridas. A podologia oferece o corte técnico seguro e monitoramento constante.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="servicos" id="servicos">
+    <h2 class="section-title">Nossos Procedimentos</h2>
+    <div class="servicos-grid">
+        <div class="card">
+            <i class="fas fa-notes-medical"></i>
+            <h3>Podologia Clínica</h3>
+            <p>Tratamento de afecções como unhas encravadas (onicocriptose), micoses e verrugas plantares.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-feather-alt"></i>
+            <h3>Profilaxia (Preventiva)</h3>
+            <p>Corte técnico das unhas, remoção segura de calosidades e hidratação profunda.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-shoe-prints"></i>
+            <h3>Órteses</h3>
+            <p>Dispositivos para correção do formato da unha, aliviando a curvatura excessiva e dores.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-spa"></i>
+            <h3>Reflexologia Podal</h3>
+            <p>Massagem terapêutica que estimula pontos específicos dos pés para relaxamento total.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contato" id="contato">
+    <h2 class="section-title">Agende sua Avaliação</h2>
+    
+    <div class="contato-wrapper">
+        <div class="contato-box">
+            <i class="fab fa-whatsapp"></i>
+            <strong>WhatsApp</strong>
+            <span>(13) 99733-6781</span>
+            <br>
+            <a href="https://wa.me/5513997336781?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação." target="_blank" style="color: var(--cor-primaria); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">Clique para agendar</a>
+        </div>
+
+        <div class="contato-box">
+            <i class="fas fa-map-marker-alt"></i>
+            <strong>Localização</strong>
+            <span>Rua Pajaú, 297</span><br>
+            <span>Jacupiranga - SP</span>
+        </div>
+
+        <div class="contato-box">
+            <i class="far fa-clock"></i>
+            <strong>Horário de Atendimento</strong>
+            <span>Segunda a Sexta: 09h às 18h</span>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Podologia Marcela Costa | Cuidado Profissional em Jacupiranga - SP</p>
+</footer>
+
+<a href="https://wa.me/5513997336781?text=Olá,%20gostaria%20de%20agendar%20um%20horário." class="whatsapp-float" target="_blank" title="Agendar no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
